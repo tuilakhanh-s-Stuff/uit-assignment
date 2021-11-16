@@ -15,10 +15,11 @@ int main() {
             cout << "PT co hai nghiem phan biet:\n";
             cout << "x1 = " << x1 << "\n";
             cout << "x2 = " << x2;
-        } else if ( delta == 0) {
-            cout << "PT co nghiem kep: x1 = x2 = " << -b/(2*a);
+        } else if ( delta < 0) {
+          cout << "PTVN";
         } else {
-            cout << "PTVN";
+            x1 = (double)-b/(2*a);
+            cout << "PT co nghiem kep: x1 = x2 = " << x1; 
         }
     }
     return 0;
