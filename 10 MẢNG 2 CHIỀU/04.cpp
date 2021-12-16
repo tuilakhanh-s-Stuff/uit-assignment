@@ -21,13 +21,13 @@ void NhapMaTran(int a[][MAXC], int &m)
 
 bool isMaTranDonVi(int a[][MAXC], int m)
 {
-  if (m == 1 && a[0][0] != 1)
-    return false;
+  /* if (m == 1 && a[0][0] != 1) */
+  /*   return false; */
   for (int i = 0; i < m; i++)
   {
-    for (int j = 0; i < m; j++) 
+    for (int j = 0; j < m; j++) 
     {
-      if (a[i][i] != 1)
+      if (i == j && a[i][i] != 1)
         return false;
       else if (i != j && a[i][j] != 0)
         return false;

@@ -1,6 +1,6 @@
 #include <iostream>
 
-void inputMatrix(int a[][100], int m, int n) 
+void inputMatrix(float a[][100], int m, int n) 
 {
   for (int i = 0; i < m; i++)
   {
@@ -11,7 +11,7 @@ void inputMatrix(int a[][100], int m, int n)
   }
 }
 
-void transposeOutput(int a[][100], int m, int n)
+void transposeOutput(float a[][100], int m, int n)
 {
   for (int j = 0; j < n; j++) 
   {
@@ -24,8 +24,8 @@ void transposeOutput(int a[][100], int m, int n)
 }
 
 int main() {
-  int a[100][100], m,n, i, j, temp;
-  std::cin>>m>>n;
+  float a[100][100], m,n;
+  std::cin >> m >> n;
   inputMatrix(a, m, n); 
   transposeOutput(a, m, n);
   return 0;

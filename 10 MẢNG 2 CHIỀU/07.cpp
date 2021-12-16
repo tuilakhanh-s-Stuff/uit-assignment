@@ -1,6 +1,6 @@
 #include <iostream>
 
-void inputMatrix(int a[][100], int &m, int &n) 
+void inputMatrix(float a[][100], int &m, int &n) 
 {
   std::cin >> m >> n;
   for (int i = 0; i < m; i++)
@@ -12,7 +12,7 @@ void inputMatrix(int a[][100], int &m, int &n)
   }
 }
 
-void sumOutput(int a[][100],int b[][100], int m, int n)
+void sumOutput(float a[][100],float b[][100], int m, int n)
 {
   for (int i = 0; i < m; i++)
   {
@@ -23,10 +23,10 @@ void sumOutput(int a[][100],int b[][100], int m, int n)
 }
 
 int main() {
-  int a[100][100], b[100][100];
+  float a[100][100], b[100][100];
   int ma, na, mb, nb;
   inputMatrix(a, ma, na);
-  inputMatrix(a, mb, nb);
+  inputMatrix(b, mb, nb);
   sumOutput(a, b, ma, na);
   return 0;
 }
