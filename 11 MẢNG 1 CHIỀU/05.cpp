@@ -37,7 +37,7 @@ int primeCheck(int a[], int p[], int n)
   int counts = 0;
   for (int i = 0; i < n; i++)
   {
-    if (primeArr[a[i]])
+    if (primeArr(a[i]))
     {
       p[counts] = a[i];
       counts++;
