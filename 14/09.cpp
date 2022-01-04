@@ -31,3 +31,33 @@ int main()
 }
 
 //###INSERT CODE HERE -
+
+int myStrlen(char s[], int k)
+{
+	int i;
+	for (i = 0; s[i] != '\0'; i++);
+	return i;
+}
+
+void Chuanhoa(char s[])
+{
+	int n = myStrlen(s, 0);
+	if ('a' <= s[0] && s[0] <= 'z')
+    s[0] = s[0] - 32;
+  for (int i = 1; i < n; i++)
+  {
+    if ('A' <= s[i] && s[i] <= 'Z')
+      s[i] = s[i] + 32;
+    if (s[i-1] == ' ' && 'a' <= s[i] && s[i] <= 'z')
+      s[i] = s[i] - 32; 
+  }
+	int i, j;
+	for (i = j = 0; i < n; ++i)
+	{
+		if (s[i] != ' ' || (s[i - 1] != ' ' && i > 0))
+		{
+			s[j++] = s[i];
+		}
+	}
+	s[j] = '\0';
+}
