@@ -12,3 +12,5 @@ struct Student
 void Input(Student&);
 
 void Output(Student);
+
+void Student_Program();

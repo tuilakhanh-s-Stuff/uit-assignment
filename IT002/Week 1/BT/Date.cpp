@@ -81,3 +81,13 @@ Date NextDay(Date a)
 	}
     return a;
 }
+
+void Date_Program()
+{
+	system("cls");
+	Date a;
+    Input(a);
+    Output(NextDay(a));
+	std::cout << '\n';
+	system("pause");
+}

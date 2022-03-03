@@ -1,4 +1,5 @@
 #pragma once
+
 #include <iostream>
 
 struct Date
@@ -11,3 +12,5 @@ void Input(Date&);
 void Output(Date);
 
 Date NextDay(Date);
+
+void Date_Program();
