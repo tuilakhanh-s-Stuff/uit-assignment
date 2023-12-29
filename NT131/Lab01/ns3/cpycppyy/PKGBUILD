@@ -1,0 +1,26 @@
+# Maintainer: Renato Lui Geh <renatogeh at gmail dot com>
+
+_realname="CPyCppyy"
+pkgname="cpycppyy-ns3"
+pkgver=1.12.12
+pkgrel=1
+pkgdesc="Cling-based Python-C++ bindings for CPython CPyCppyy (ns3)"
+arch=('any')
+url="https://cppyy.readthedocs.io/en/latest/index.html"
+license=('LBNL BSD')
+provides=('cpycppyy')
+conflicts=('cpycppyy')
+depends=('python' 'cppyy-cling-ns3' 'cppyy-backend-ns3')
+makedepends=('python-build' 'python-installer' 'python-wheel')
+source=("https://files.pythonhosted.org/packages/source/${_realname::1}/${_realname}/${_realname}-${pkgver}.tar.gz")
+sha256sums=('19188585eda3538eb69d32fd3fa9db0cc85a6031b6ca6955efff8051b798a73e')
+
+build() {
+  cd "$_realname-$pkgver"
+  python -m build --wheel --no-isolation
+}
+
+package() {
+  cd "$_realname-$pkgver"
+  python -m installer --destdir="$pkgdir" dist/*.whl
+}

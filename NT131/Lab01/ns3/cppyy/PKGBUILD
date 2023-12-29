@@ -1,0 +1,27 @@
+# Maintainer: Renato Lui Geh <renatogeh at gmail dot com>
+
+_realname=cppyy
+pkgname=cppyy-ns3
+pkgver=2.4.2
+pkgrel=1
+pkgdesc="Cling-based Python-C++ bindings (ns3)"
+arch=('any')
+url="https://cppyy.readthedocs.io/en/latest/index.html"
+license=('LBNL BSD')
+provides=('cppyy')
+conflicts=('cppyy')
+depends=('python' 'cppyy-cling-ns3' 'cppyy-backend-ns3' 'cpycppyy-ns3')
+makedepends=('python-build' 'python-installer' 'python-wheel')
+source=("https://files.pythonhosted.org/packages/source/${_realname::1}/${_realname}/${_realname}-${pkgver}.tar.gz")
+sha256sums=('468a8877afe724b9bf5e83704513d64be9cf2f91183c83704d3e2118626012d3')
+
+build() {
+  cd "$_realname-$pkgver"
+  CFLAGS="$CFLAGS -DSTRLCPY" python -m build --wheel --no-isolation
+}
+
+package() {
+  cd "$_realname-$pkgver"
+  python -m installer --destdir="$pkgdir" dist/*.whl
+}
+

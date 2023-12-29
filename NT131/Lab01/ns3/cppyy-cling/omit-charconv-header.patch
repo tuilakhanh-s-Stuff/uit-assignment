@@ -1,0 +1,12 @@
+--- /usr/lib/python3.11/site-packages/cppyy_backend/etc/dictpch/allHeaders.h	2023-10-05 23:44:33.000000000 +0700
++++ allHeaders.h	2023-10-05 23:59:05.077170590 +0700
+@@ -253,9 +253,6 @@
+ #if __has_include("string_view")
+ #include <string_view>
+ #endif
+-#if __has_include("charconv")
+-#include <charconv>
+-#endif
+ #if __has_include("filesystem")
+ #include <filesystem>
+ #endif

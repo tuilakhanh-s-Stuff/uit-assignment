@@ -1,0 +1,34 @@
+# Maintainer: Renato Lui Geh <renatogeh at gmail dot com>
+
+_realname=cppyy-cling
+pkgname=cppyy-cling-ns3
+pkgver=6.27.1
+pkgrel=1
+pkgdesc="Cling-based Python-C++ bindings (cling backend for ns3)"
+arch=('x86_64')
+url="https://cppyy.readthedocs.io/en/latest/index.html"
+license=('LGPLv2+' 'LGPL2.1' 'UoI-NCSA')
+provides=('cppyy-cling')
+conflicts=('cppyy-cling')
+depends=('python')
+source=("https://files.pythonhosted.org/packages/py2.py3/${_realname::1}/${_realname}/${_realname//-/_}-$pkgver-py2.py3-none-manylinux2014_x86_64.whl"
+        # backport https://github.com/wlav/cppyy/issues/181
+        "https://github.com/wlav/cppyy-backend/commit/f0b74d3967647adb06a9077f20e357242d2e948a.patch"
+        "omit-charconv-header.patch")
+sha256sums=('9c6e20c2a8ef48d6d2b0a4af06d3110731ca75e4d5cdddbf541f2d3cdda40881'
+            'bb3c135cd84b0a8525472af108c8ab2b1587ac70f948d47130de6ee73a94f9ee'
+            'd0cd095ecf59330847de0f898b1b80a2212d77348fc9268ae766b603e56f453f')
+
+# Install from wheel, since:
+#
+#     Wheels are available for the major platforms,
+#     but if you have to build from source, building
+#     of LLVM will take a long time.
+#
+# as stated in cppyy's website.
+package() {
+  python -m installer --destdir="$pkgdir" "${_realname//-/_}-$pkgver-py2.py3-none-manylinux2014_x86_64.whl"
+  local python_version=$(python -c 'import sys; print(".".join(map(str, sys.version_info[:2])))')
+  patch "$pkgdir/usr/lib/python$python_version/site-packages/cppyy_backend/include/ROOT/RConfig.hxx" < "$srcdir/f0b74d3967647adb06a9077f20e357242d2e948a.patch"
+  patch "$pkgdir/usr/lib/python$python_version/site-packages/cppyy_backend/etc/dictpch/allHeaders.h" < "$srcdir/omit-charconv-header.patch"
+}

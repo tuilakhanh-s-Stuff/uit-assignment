@@ -1,0 +1,11 @@
+--- /usr/lib/python3.11/ns/__init__.py	2023-10-06 17:50:08.034316316 +0700
++++ __init__.py	2023-10-06 17:50:22.514254559 +0700
+@@ -359,6 +359,8 @@
+                     libraries.remove(conflicting_library)
+                     conflicting_libraries.remove(conflicting_library)
+ 
++            conflicting_libraries = conflicting_libraries[1:]
++
+             if len(conflicting_libraries) > 1:
+                 raise Exception("There are multiple build profiles for module '%s'.\nDelete one to continue: %s"
+                                 % (module, ", ".join(conflicting_libraries)))
