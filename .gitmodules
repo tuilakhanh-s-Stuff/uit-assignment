@@ -1,3 +1,6 @@
 [submodule "NT106"]
 	path = NT106
 	url = git@github.com:tuilakhanh-s-Forks/NT106.git
+[submodule "NT536/Project03"]
+	path = NT536/Project03
+	url = https://github.com/tuilakhanh-s-Forks/nginx-streaming-server-docker
