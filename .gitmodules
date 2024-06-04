@@ -7,3 +7,6 @@
 [submodule "NT109/PersonalProject"]
 	path = NT109/PersonalProject
 	url = https://github.com/tuilakhanh-s-Forks/temp-file-sharing
+[submodule "NT101/Project"]
+	path = NT101/Project
+	url = https://github.com/tuilakhanh-s-Forks/NT101_PJ
